@@ -1,3 +1,7 @@
+output "app_service_managed_certificates_id" {
+  description = "Map of id values across all app_service_managed_certificates, keyed the same as var.app_service_managed_certificates"
+  value       = { for k, v in azurerm_app_service_managed_certificate.app_service_managed_certificates : k => v.id }
+}
 output "app_service_managed_certificates_canonical_name" {
   description = "Map of canonical_name values across all app_service_managed_certificates, keyed the same as var.app_service_managed_certificates"
   value       = { for k, v in azurerm_app_service_managed_certificate.app_service_managed_certificates : k => v.canonical_name }
